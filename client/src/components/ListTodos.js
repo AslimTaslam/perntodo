@@ -13,7 +13,7 @@ const ListTodos = (props) => {
 
   useEffect(() => {
     fetchData();
-  });
+  }, []);
   
   const visibleTodos = searchTodo(filterTodos(todos, filter), searchItem);
   
