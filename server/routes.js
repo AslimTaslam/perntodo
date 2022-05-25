@@ -8,8 +8,8 @@ router.post('/todos', async (req, res) => {
   try{
     const {description, important, done} = req.body;
     const newTodo = await pool.query(
-      'INSERT INTO todo (description, important, done) VALUES($1, $2, $3) RETURNING *',
-      [description, important, done]
+      'INSERT INTO todo (description, important, done) VALUES($1, $2, DEFAULT) RETURNING *',
+      [description, important]
     );
     res.json(newTodo.rows[0]); 
   }catch(err){
@@ -31,9 +31,12 @@ router.get('/todos/:id', async (req, res) => {
 });
 
 //Get all todos
-router.get('/todos' async (req, res) => {
+router.get('/todos', async (req, res) => {
   try{
     const allTodos = await pool.query('SELECT * FROM todo');
+    const arrTodos = allTodos.rows;
+    const sortTodos = arrTodos.sort((a, b) =>  a.id_todo - b.id_todo)
+    console.log('get Todo');
     res.json(allTodos.rows);
   }catch(err){
     console.error(err.message);
@@ -49,7 +52,7 @@ router.put('/todos/:id', async (req, res) => {
       'UPDATE todo SET description = $1, important = $2, done = $3 WHERE id_todo = $4',
       [description, important, done, id]
     );
-    res.json('updated todo');
+    res.json(editTodo);
   }catch(err){
     console.error(err.message);
   }

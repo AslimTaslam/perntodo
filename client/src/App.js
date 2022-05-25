@@ -1,14 +1,23 @@
-import {Fragment} from 'react';
-import SearchTodo from './components/searchTodo/SearchTodo.js';
-import ListTodos from './components/listTodos/ListTodos.js';
+import { Fragment } from 'react';
+import SearchTodo from './components/SearchTodo.js';
+import FilterTodo from './components/FilterTodo.js';
+import CreateTodo from './components/CreateTodo.js';
+import ListTodos from './components/ListTodos.js';
+import { TodosContextProvider } from './context/TodosContext.js';
 
-const App = () => {
+const App = () => { 
   return (
-    <Fragment>
-      <h1 className="text-center mt-3">Todo app</h1>
-      <SearchTodo/>
-      <ListTodos/>
-    </Fragment>
+    <TodosContextProvider>
+      <Fragment>
+        <h1 className="text-center mt-3">Todo app</h1>
+        <SearchTodo/>
+        <div>
+          <FilterTodo/>
+	  <CreateTodo/>
+        </div>
+        <ListTodos/> 
+      </Fragment>
+    </TodosContextProvider>
   );
 }
 
