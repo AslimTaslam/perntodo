@@ -5,7 +5,7 @@ const SearchTodo = () => {
   const {searchItem, setSearchItem} = useContext(TodosContext);
   return (
     <Fragment>
-      <div className="input-group ml-2 mr-2">
+      <div className="input-group mt-2">
         <input
 	  type="text"
 	  className="form-control"
@@ -16,7 +16,7 @@ const SearchTodo = () => {
 	  value={searchItem}
 	/>
 
-        <div className="input-group-append mr-2">
+        <div className="input-group-append">
           <span className="input-group-text" id="basic-addon2">
 	    <i className="bi bi-search"></i>
 	  </span>

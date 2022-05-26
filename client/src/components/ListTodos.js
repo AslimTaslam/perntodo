@@ -19,7 +19,7 @@ const ListTodos = (props) => {
   
   return (
     <Fragment>
-      <ul className="list-group mt-2 ml-2">
+      <ul className="list-group mt-2">
 	{ 
           visibleTodos.map((todo) => (
 	    <ItemTodo

@@ -7,7 +7,7 @@ const FilterTodo = () => {
   const clazz = 'btn btn-outline-secondary';
   return (
     <Fragment>
-      <div className="btn-group mt-2 ml-2">
+      <div className="btn-group mt-2">
         <button
 	  className={filter === 'all' ? clazzActive : clazz}
 	  onClick={() => setFilter('all')}
