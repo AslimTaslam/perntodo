@@ -2,6 +2,7 @@ import { Fragment, useEffect, useContext } from 'react';
 import { getTodos } from '../apis/TodoList.js';
 import { TodosContext } from '../context/TodosContext';
 import ItemTodo from './ItemTodo.js';
+import Loader from './Loader.js';
 
 const ListTodos = (props) => {
   const { todos, setTodos, filter, filterTodos, searchTodo, searchItem } = useContext(TodosContext);
@@ -16,7 +17,9 @@ const ListTodos = (props) => {
   }, []);
   
   const visibleTodos = searchTodo(filterTodos(todos, filter), searchItem);
-  
+  if(!visibleTodos) {
+    return <Loader />
+  } 
   return (
     <Fragment>
       <ul className="list-group mt-2">
