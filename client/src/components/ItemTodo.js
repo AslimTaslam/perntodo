@@ -11,7 +11,7 @@ const ItemTodo = ({ todo }) => {
 	const onEdit = async () => {
 		if (editActive) {
 			try {
-				const response = await editTodo(todo, description);
+				await editTodo(todo, description);
 				const newTodo = { ...todo, description };
 				updateTodo(newTodo);
 			} catch (err) {
@@ -23,7 +23,7 @@ const ItemTodo = ({ todo }) => {
 
 	const onMark = async () => {
 		try {
-			const response = await markTodo(todo);
+			await markTodo(todo);
 			const newTodo = { ...todo, important: !todo.important };
 			updateTodo(newTodo);
 		} catch (err) {
@@ -33,7 +33,7 @@ const ItemTodo = ({ todo }) => {
 
 	const onDone = async () => {
 		try {
-			const response = await doneTodo(todo);
+			await doneTodo(todo);
 			const newTodo = { ...todo, done: !todo.done };
 			updateTodo(newTodo);
 		} catch (err) {
@@ -43,7 +43,7 @@ const ItemTodo = ({ todo }) => {
 
 	const onDelete = async () => {
 		try {
-			const response = await deleteTodo(todo);
+			await deleteTodo(todo);
 			updateTodo(todo, "delete");
 		} catch (err) {
 			console.error(err.message);

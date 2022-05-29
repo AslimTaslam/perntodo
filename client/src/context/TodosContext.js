@@ -42,9 +42,9 @@ export const TodosContextProvider = (props) => {
 				return items;
 			}
 			return items.filter((item) => {
-				return (
-					item.description.toLowerCase().indexOf(searchItem.toLowerCase()) > -1
-				);
+				return item.description
+					.toLowerCase()
+					.includes(searchItem.toLowerCase());
 			});
 		} catch (err) {
 			console.error(err.message);

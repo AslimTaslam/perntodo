@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const EditTodo = ({ description, active, onChangeDescription }) => {
 	const editActiveRef = useRef(null);
@@ -15,16 +15,14 @@ const EditTodo = ({ description, active, onChangeDescription }) => {
 	};
 
 	return (
-		<Fragment>
-			<input
-				type="text"
-				className="edit-item text-secondary col"
-				onChange={(e) => updateTodo(e)}
-				ref={editActiveRef}
-				autoFocus
-				value={description}
-			/>
-		</Fragment>
+		<input
+			type="text"
+			className="edit-item text-secondary col"
+			onChange={(e) => updateTodo(e)}
+			ref={editActiveRef}
+			autoFocus
+			value={description}
+		/>
 	);
 };
 
