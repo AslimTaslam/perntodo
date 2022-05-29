@@ -3,7 +3,7 @@ import { useState, createContext } from "react";
 export const TodosContext = createContext();
 
 export const TodosContextProvider = (props) => {
-	const [todos, setTodos] = useState(null);
+	const [todos, setTodos] = useState([]);
 	const [filter, setFilter] = useState("all");
 	const [searchItem, setSearchItem] = useState("");
 

@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getTodos } from "../apis/TodoList.js";
 import { TodosContext } from "../context/TodosContext";
 import ItemTodo from "./ItemTodo.js";
@@ -7,11 +7,14 @@ import Loader from "./Loader.js";
 const ListTodos = (props) => {
 	const { todos, setTodos, filter, filterTodos, searchTodo, searchItem } =
 		useContext(TodosContext);
+  const [ loading, setLoading ] = useState(false);
 
 	const fetchData = async () => {
+		setLoading(true);
 		const data = await getTodos();
-		if (data) {
+		if (data.data) {
 			setTodos(data.data);
+			setLoading(false);
 		}
 	};
 
@@ -20,7 +23,8 @@ const ListTodos = (props) => {
 	}, []);
 
 	const visibleTodos = searchTodo(filterTodos(todos, filter), searchItem);
-	if (!visibleTodos) {
+
+	if (loading) {
 		return <Loader />;
 	}
 	return (
