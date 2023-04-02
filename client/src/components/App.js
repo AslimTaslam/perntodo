@@ -5,8 +5,7 @@ import ListTodos from './ListTodos.js';
 import ErrorBoundary from './ErrorBoundary.js';
 import { TodosContextProvider } from '../context/TodosContext.js';
 
-const App = () => {
-  return (
+const App = () => (
     <TodosContextProvider>
       <ErrorBoundary>
         <div className='container'>
@@ -23,6 +22,5 @@ const App = () => {
       </ErrorBoundary>
     </TodosContextProvider>
   );
-};
 
 export default App;

@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext, useCallback } from 'react';
-import { getTodos } from '../apis/TodoList.js';
+import { getTodos } from '../services/TodoList.js';
 import { TodosContext } from '../context/TodosContext';
 import ItemTodo from './ItemTodo.js';
 import Loader from './Loader.js';
 
-const ListTodos = (props) => {
+const ListTodos = () => {
   const { todos, setTodos, filter, filterTodos, searchTodo, searchItem } =
     useContext(TodosContext);
   const [loading, setLoading] = useState(false);
