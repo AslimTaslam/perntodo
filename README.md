@@ -1,16 +1,25 @@
-# perntodo
-PERN stack.
-Simple To-Do list web application.
+# Todo list application
 
-Technologies used
+Simple TODO list fullstack application (PERN stack).
 
-Back-end: Nodejs, express
+## Example
 
-Front-end: ReactJS, axios, bootstrap
+![Example](https://github.com/AslimTaslam/perntodo/blob/main/quickExample.png 'Perntodo')
 
-DB: PostgreSQl
+## Technology
 
-#
-#
-#
+- Back-end: Nodejs, express
 
+- Front-end: ReactJS, axios, bootstrap
+
+- DB: PostgreSQl
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+### `npm run build`
+
+### `npm run lint`
